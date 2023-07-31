@@ -26,7 +26,7 @@ window.addEventListener('hashchange', () => {
   loadingElement.classList.remove('hidden');
   setTimeout(() => {
     loadingElement.classList.add('hidden');
-  }, 1000);
+  }, 700);
   app.renderPage();
 });
 
@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
   const loadingElement = document.querySelector('#loading-element');
   setTimeout(() => {
     loadingElement.classList.add('hidden');
-  }, 1000);
+  }, 700);
   app.renderPage();
   // swRegister();
   if (!navigator.onLine) {
