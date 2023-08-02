@@ -10,7 +10,7 @@ const Login = {
             <a href="#" class="-m-1.5 p-1.5 flex-col justify-center">
               <img
                 class="h-8 w-auto mb-2"
-                src=""
+                src="/images/icon-gpn.png"
                 alt="Logo GPN"
               />
             </a>
