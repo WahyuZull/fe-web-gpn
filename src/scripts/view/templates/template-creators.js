@@ -1,7 +1,6 @@
 import CONFIG from '../../globals/config';
 import formatRupiah from '../../utils/format-rupiah';
 import formatLineBreak from '../../utils/format-line-break';
-import cartImage from '../../../public/images/cart_shop.png';
 
 const itemProductTemplate = (product) => `
   <a href="/#/detail/${product.url}" class="group min-h-80">
@@ -289,7 +288,7 @@ const totalCartTemplate = (subTotal) => `
 const emptyCartTemplate = () => `
   <div class="text-center py-24 lg:py-2">
     <div class="flex justify-center items-center overflow-hidden">
-      <img src="${cartImage}" class="object-center h-40 w-40 lg:h-56 lg:w-56">
+      <img src="/images/cart_shop.png" class="object-center h-40 w-40 lg:h-56 lg:w-56">
     </div>
     <p class="pt-6 text-md font-semibold mb-4">Anda belum menambahkan barang ke keranjang</p>
     <div class="my-4">
