@@ -1,4 +1,3 @@
-import logoGpn from '../../public/icons/gpn-icon.png';
 import ProductResorce from '../data/product-source';
 import { cartNotifTemplate, cartNotifMobileTemplate } from '../view/templates/template-creators';
 
@@ -17,7 +16,7 @@ class HeaderElement extends HTMLElement {
             <span class="sr-only">Galeri Pelajar Nusantara</span>
             <img
               class="h-8 w-auto"
-              src="${logoGpn}"
+              src="/icons/icon-gpn.png"
               alt="Logo GPN"
             />
             <p
@@ -40,6 +39,7 @@ class HeaderElement extends HTMLElement {
             type="button"
             id="openMenu"
             class="block"
+            aria-label="menu"
           >
             <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
             <span class="hamburger-line transition duration-300 ease-in-out"></span>

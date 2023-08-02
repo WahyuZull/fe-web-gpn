@@ -1,5 +1,3 @@
-import logoGpn from '../../../../public/icons/gpn-icon.png';
-
 const About = {
   async render() {
     return `
@@ -80,7 +78,7 @@ const About = {
           <div class="flex flex-col items-center justify-center">
             <img
               class="h-36 w-auto mb-2 lg:h-52"
-              src="${logoGpn}"
+              src="/icons/gpn-icon.png"
               alt="Logo GPN"
             />
             <h1

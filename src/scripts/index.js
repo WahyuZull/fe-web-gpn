@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import 'regenerator-runtime';
-import Swal from 'sweetalert2';
 import '../styles/styles.css';
+import swRegister from './utils/sw-register';
 import App from './view/app';
 import './component/header-element';
 import './component/footer-element';
@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
     loadingElement.classList.add('hidden');
   }, 700);
   app.renderPage();
-  // swRegister();
+  swRegister();
   if (!navigator.onLine) {
     Swal.fire({
       title: 'Tidak ada jaringan!',

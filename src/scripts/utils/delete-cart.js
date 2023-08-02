@@ -1,5 +1,4 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import Swal from 'sweetalert2';
 import ProductResorce from '../data/product-source';
 
 const DeleteCartButton = {

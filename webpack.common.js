@@ -2,6 +2,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const BrotliPlugin = require('brotli-webpack-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
@@ -36,29 +38,6 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 20000,
-      maxSize: 70000,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      automaticNameDelimiter: '~',
-      enforceSizeThreshold: 50000,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-      },
-    },
-  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -72,6 +51,41 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
+    }),
+
+    new WebpackPwaManifest({
+      name: 'Front End Official Web Shop Galeri Pelajar Nusantara',
+      short_name: 'FE GPN',
+      description: 'Official Web Shop Galeri Pelajar Nusantara',
+      theme_color: '#15804B',
+      background_color: '#ffffff',
+      id: './index.html',
+      start_url: './index.html',
+      publicPath: './',
+      fingerprints: false,
+      orientation: 'portrait',
+      display: 'standalone',
+      icons: [
+        {
+          src: path.resolve('src/public/icons/icon-gpn.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          type: 'image/png',
+          purpose: 'any',
+        },
+        {
+          src: path.resolve('src/public/icons/maskable-icon.png'),
+          size: '1024x1024',
+          type: 'image/png',
+          purpose: 'maskable',
+        },
+      ],
+    }),
+
+    new BrotliPlugin({
+      asset: '[path].br[query]',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      inRatio: 0.5,
     }),
 
     // new BundleAnalyzerPlugin(),

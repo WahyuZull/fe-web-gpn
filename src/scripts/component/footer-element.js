@@ -1,5 +1,3 @@
-import logoGpn from '../../public/icons/gpn-icon.png';
-
 class FooterElement extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -13,7 +11,7 @@ class FooterElement extends HTMLElement {
         <div class="mb-6 md:mb-0">
           <a href="#" class="flex flex-col gap-2 items-center sm:flex-row">
             <img
-              src="${logoGpn}"
+              src="/icons/icon-gpn.png"
               class="h-8"
               alt="Logo GPN"
             />

@@ -1,8 +1,3 @@
-import layoutEmpat from '../../public/images/Layout-04.jpg';
-import layoutDelapan from '../../public/images/Layout-08.jpg';
-import layoutSepuluh from '../../public/images/Layout-10.jpg';
-import layoutSebelas from '../../public/images/Layout-11.jpg';
-
 class SpekElement extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -27,7 +22,7 @@ class SpekElement extends HTMLElement {
             <div class="group relative bg-gray-200" data-aos="fade-up">
               <div class="lg:h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg">
                 <img
-                  src="${layoutEmpat}"
+                  src="/images/Layout-05.jpg"
                   alt="gambar ilustrasi"
                   class="h-full w-full object-cover object-center group-hover:scale-125 ease-in-out transition"
                   loading="lazy"
@@ -40,7 +35,7 @@ class SpekElement extends HTMLElement {
             <div class="group relative bg-gray-200" data-aos="fade-up">
               <div class="lg:h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg">
                 <img
-                  src="${layoutDelapan}"
+                  src="/images/Layout-08.jpg"
                   alt="gambar ilustrasi"
                   class="h-full w-full object-cover object-center group-hover:scale-125 ease-in-out transition"
                   loading="lazy"
@@ -53,7 +48,7 @@ class SpekElement extends HTMLElement {
             <div class="group relative bg-gray-200" data-aos="fade-up">
               <div class="lg:h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg">
                 <img
-                  src="${layoutSebelas}"
+                  src="/images/Layout-10.jpg"
                   alt="gambar ilustrasi"
                   class="h-full w-full object-cover object-center group-hover:scale-125 ease-in-out transition"
                   loading="lazy"
@@ -66,7 +61,7 @@ class SpekElement extends HTMLElement {
             <div class="group relative bg-gray-200" data-aos="fade-up">
               <div class="lg:h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg">
                 <img
-                  src="${layoutSepuluh}"
+                  src="/images/Layout-11.jpg"
                   alt="gambar ilustrasi"
                   class="h-full w-full object-cover object-center group-hover:scale-125 ease-in-out transition"
                   loading="lazy"

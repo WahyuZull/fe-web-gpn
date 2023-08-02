@@ -1,10 +1,4 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import {
-  Animate,
-  Ripple,
-  initTE,
-} from 'tw-elements';
-import Swal from 'sweetalert2';
 import ProductResorce from '../../../data/product-source';
 import UrlParser from '../../../routes/url-parser';
 import {
@@ -131,8 +125,6 @@ const Detail = {
         id: product.id,
       });
     });
-
-    initTE({ Animate, Ripple });
   },
 };
 

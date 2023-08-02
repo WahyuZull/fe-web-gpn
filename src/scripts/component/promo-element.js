@@ -1,11 +1,3 @@
-import layoutSatu from '../../public/images/Layout-01.jpg';
-import layoutDua from '../../public/images/Layout-02.jpg';
-import layoutTiga from '../../public/images/Layout-03.jpg';
-import layoutEmpat from '../../public/images/Layout-04.jpg';
-import layoutLima from '../../public/images/Layout-05.jpg';
-import layoutEnam from '../../public/images/Layout-06.jpg';
-import layoutTujuh from '../../public/images/Layout-07.jpg';
-
 class PromoElement extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -28,29 +20,29 @@ class PromoElement extends HTMLElement {
                     <div class="flex items-center space-x-6 lg:space-x-8">
                       <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8" data-aos="fade-up-left">
                         <div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-                          <img src="${layoutSatu}" alt="" class="h-full w-full object-cover object-center">
+                          <img src="/images/Layout-01.jpg" alt="" class="h-full w-full object-cover object-center">
                         </div>
                         <div class="h-64 w-44 overflow-hidden rounded-lg">
-                          <img src="${layoutDua}" alt="" class="h-full w-full object-cover object-center">
-                        </div>
-                      </div>
-                      <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8" data-aos="fade-up-left">
-                        <div class="h-64 w-44 overflow-hidden rounded-lg">
-                          <img src="${layoutTiga}" alt="" class="h-full w-full object-cover object-center">
-                        </div>
-                        <div class="h-64 w-44 overflow-hidden rounded-lg">
-                          <img src="${layoutEmpat}" alt="" class="h-full w-full object-cover object-center">
-                        </div>
-                        <div class="h-64 w-44 overflow-hidden rounded-lg">
-                          <img src="${layoutLima}" alt="" class="h-full w-full object-cover object-center">
+                          <img src="/images/Layout-02.jpg" alt="" class="h-full w-full object-cover object-center">
                         </div>
                       </div>
                       <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8" data-aos="fade-up-left">
                         <div class="h-64 w-44 overflow-hidden rounded-lg">
-                          <img src="${layoutEnam}" alt="" class="h-full w-full object-cover object-center">
+                          <img src="/images/Layout-03.jpg" alt="" class="h-full w-full object-cover object-center">
                         </div>
                         <div class="h-64 w-44 overflow-hidden rounded-lg">
-                          <img src="${layoutTujuh}" alt="" class="h-full w-full object-cover object-center">
+                          <img src="/images/Layout-04.jpg" alt="" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                          <img src="/images/Layout-05.jpg" alt="" class="h-full w-full object-cover object-center">
+                        </div>
+                      </div>
+                      <div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8" data-aos="fade-up-left">
+                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                          <img src="/images/Layout-06.jpg" alt="" class="h-full w-full object-cover object-center">
+                        </div>
+                        <div class="h-64 w-44 overflow-hidden rounded-lg">
+                          <img src="/images/Layout-07.jpg" alt="" class="h-full w-full object-cover object-center">
                         </div>
                       </div>
                     </div>

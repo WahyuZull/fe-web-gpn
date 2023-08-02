@@ -62,17 +62,9 @@ const detailProdukTemplate = (product) => `
       <div class="flex flex-col lg:flex-row gap-6 w-full">
         <div class="w-max flex items-center lg:items-start gap-6">
           <div
-            data-te-animation-init
-            data-te-animation-target="#jumbo"
-            data-te-ripple-init
-            data-te-ripple-color="light"
             class="w-72 flex flex-col gap-4 md:w-96 md:flex-row">
             <div class="overflow-hidden h-72 w-full rounded-md">
               <img id="jumbo" src="" alt="${product.title}" loading="lazy"
-                data-te-animation-init
-                data-te-animation-start="onClick"
-                data-te-animation-reset="true"
-                data-te-animation="[fade-in_2s_ease-in-out]"
                 class="h-full w-full object-cover object-center hover:scale-150 ease-in-out duration-300 transition-all cursor-zoom-in">
             </div>
             <div class="flex flex-row justify-between items-center md:flex-col">

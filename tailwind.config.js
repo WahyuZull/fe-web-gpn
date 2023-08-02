@@ -3,7 +3,6 @@ module.exports = {
   content: [
     './src/**/*.{html,js}',
     './node_modules/flowbite/**/*.js',
-    './node_modules/tw-elements/dist/js/**/*.js',
   ],
   theme: {
     fontFamily: {
@@ -12,6 +11,7 @@ module.exports = {
     },
     container: {
       center: true,
+      padding: '8px',
     },
     extend: {
       colors: {
@@ -36,7 +36,5 @@ module.exports = {
     require('flowbite/plugin'),
     // eslint-disable-next-line global-require
     require('prettier-plugin-tailwindcss'),
-    // eslint-disable-next-line global-require
-    require('tw-elements/dist/plugin.cjs'),
   ],
 };

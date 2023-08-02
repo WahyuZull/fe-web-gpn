@@ -1,4 +1,3 @@
-import Swal from 'sweetalert2';
 import ProductResorce from '../data/product-source';
 
 const AddReviewButton = {

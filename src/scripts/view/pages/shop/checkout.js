@@ -1,6 +1,4 @@
 /* eslint-disable no-return-assign */
-import axios from 'axios';
-import Swal from 'sweetalert2';
 import ProductResorce from '../../../data/product-source';
 import paymentButton from '../../../utils/payment';
 import { emptyCartTemplate, formCheckoutTemplate } from '../../templates/template-creators';

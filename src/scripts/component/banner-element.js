@@ -1,8 +1,5 @@
 import Swiper, { Navigation, Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
-import bannerSatu from '../../public/images/Banner Web GPN-01.jpg';
-import bannerDua from '../../public/images/Banner Web GPN-02.jpg';
-import bannerTiga from '../../public/images/Banner Web GPN-03.jpg';
 
 class BannerElement extends HTMLElement {
   connectedCallback() {
@@ -15,20 +12,20 @@ class BannerElement extends HTMLElement {
       <div id="image-carousel" class="relative">
         <div class="swiper">
           <!-- Carousel wrapper -->
-          <swiper-container class="swiper-wrapper">
+          <div class="swiper-wrapper">
             <!-- Item 1 -->
-            <swiper-slide class="swiper-slide">
-              <img loading="lazy" src="${bannerSatu}" class="h-full w-full object-cover object-center">
-            </swiper-slide>
+            <div class="swiper-slide">
+              <img loading="lazy" src="/images/Banner Web GPN-01.jpg" alt="banner satu" class="h-full w-full object-cover object-center">
+            </div>
             <!-- Item 2 -->
-            <swiper-slide class="swiper-slide">
-              <img loading="lazy" src="${bannerDua}" class="h-full w-full object-cover object-center">
-            </swiper-slide>
+            <div class="swiper-slide">
+              <img loading="lazy" src="/images/Banner Web GPN-02.jpg" alt="banner dua" class="h-full w-full object-cover object-center">
+            </div>
             <!-- Item 3 -->
-            <swiper-slide class="swiper-slide">
-              <img loading="lazy" src="${bannerTiga}" class="h-full w-full object-cover object-center">
-            </swiper-slide>
-          </swiper-container>
+            <div class="swiper-slide">
+              <img loading="lazy" src="/images/Banner Web GPN-03.jpg" alt="banner tiga" class="h-full w-full object-cover object-center">
+            </div>
+          </div>
         </div>
         <!-- Slider controls -->
         <button id="prev" type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -55,8 +52,7 @@ class BannerElement extends HTMLElement {
       modules: [Navigation, Autoplay],
       loop: true,
       autoplay: {
-        spaceBetween: 30,
-        delay: 7000,
+        delay: 5000,
         disableOnInteraction: false,
       },
       navigation: {
