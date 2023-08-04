@@ -10,6 +10,7 @@ const AddCartButton = {
   async _addToCart() {
     const qty = document.querySelector('#defaultQty').value;
     const sizes = document.querySelectorAll('input[type="radio"][name="size-choice"]');
+    const stock = document.querySelector('#stock').innerHTML;
     let selectedSize;
     // eslint-disable-next-line no-restricted-syntax
     for (const size of sizes) {
@@ -20,7 +21,7 @@ const AddCartButton = {
     const data = {
       product_id: this._id,
       qty,
-      size: selectedSize,
+      size_id: selectedSize,
       sessionId: localStorage.getItem('cartId'),
     };
     if (!selectedSize) {
@@ -28,12 +29,24 @@ const AddCartButton = {
         text: 'Pilih size terlebih dahulu!',
         icon: 'warning',
       });
-    } else {
-      await ProductResorce.addToCart(data);
-      await Swal.fire({
-        text: 'Berhasil menambahkan barang ke keranjang',
-        icon: 'success',
+    } else if (qty > stock) {
+      Swal.fire({
+        text: 'Jumlah melebihi stok yang ada!',
+        icon: 'warning',
       });
+    } else {
+      const cart = await ProductResorce.addToCart(data);
+      if (cart.data.code === 200) {
+        await Swal.fire({
+          text: 'Berhasil menambahkan produk ke keranjang',
+          icon: 'success',
+        });
+      } else {
+        await Swal.fire({
+          text: 'Gagal menambahkan barang ke keranjang',
+          icon: 'error',
+        });
+      }
 
       window.location.reload();
     }

@@ -158,6 +158,11 @@ class ProductResorce {
     });
     return response;
   }
+
+  static async getSize(id) {
+    const response = await axios.get(API_ENDPOINT.SIZE(id));
+    return response;
+  }
 }
 
 export default ProductResorce;

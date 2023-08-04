@@ -16,7 +16,6 @@ const itemProductTemplate = (product) => `
     <h3 class="pt-2 text-xl font-bold">
         ${product.title}
     </h3>
-    <p class="text-sm">${formatRupiah(product.price)}</p>
   </a>
 `;
 
@@ -170,7 +169,7 @@ const detailProdukTemplate = (product) => `
 
 const sizeProdukTemplate = (stock) => `
   <div class="flex items-center justify-center">
-    <input type="radio" id="size-choice-${stock.id}" name="size-choice" value="${stock.stock}" placeholder="${stock.size.name}" class="hidden peer">
+    <input type="radio" id="size-choice-${stock.id}" name="size-choice" value="${stock.stock}" placeholder="${stock.size.id}" class="hidden peer">
     <label for="size-choice-${stock.id}" class="flex items-center justify-center h-10 w-10 p-2 text-gray-500 bg-white border border-gray-200 rounded-md drop-shadow-sm cursor-pointer peer-checked:border-gray-600 peer-checked:text-gray-900 peer-checked:bg-gray-100 peer-checked:font-medium hover:text-gray-600 hover:bg-gray-100">
       <p>${stock.size.name}</p>
     </label>
@@ -249,7 +248,7 @@ const cartProductTemplate = (cart) => `
         <div class="ml-4 gap-2">
           <h2 class="text-xl font-bold text-gray-900">${cart.product.title}</h2>
           <p class="text-sm italic text-gray-700">${cart.product.category.name}</p>
-          <p class="text-lg text-gray-700 font-medium">Size: ${cart.size}</span></p>
+          <p class="text-lg text-gray-700 font-medium">Size: <span id="size"></span></p>
         </div>
         <div class="flex justify-between">
           <div class="grid grid-rows-3 gap-2">
@@ -427,7 +426,7 @@ const detailInvoiceTemplate = (dataInvoice) => `
     <div class="w-full grid justify-items-end">
       <p class="font-bold">INVOICE</p>
       <p class="text-xs">${dataInvoice.trs_number}</p>
-      <p class="text-xs">${dataInvoice.createdAt}</p>
+      <p class="text-xs">${dataInvoice.transaction_date}</p>
     </div>
     <div class="pt-2 flex gap-6">
       <div clas="w-1/2">
@@ -499,8 +498,8 @@ const dataProdukInvoiceTemplate = (detail) => `
   <tr class="border-b">
     <td class="text-left">
       <div class="flex flex-col">
-        <span class="font-semibold">${detail.title} (${detail.size})</span>
-        <span class="italic">${detail.category.name}</span>
+        <p class="font-semibold">${detail.title} (<span id="size"></span>)</p>
+        <p class="italic">${detail.category.name}</p>
       </div>
     </td>
     <td class="text-right">${detail.qty}</td>

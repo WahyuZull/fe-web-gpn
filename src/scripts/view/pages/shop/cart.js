@@ -61,11 +61,14 @@ const Cart = {
       const totalBayarContainer = document.querySelector('#totalHarga');
 
       let totalHarga = 0;
-      carts.forEach((cart) => {
+      carts.forEach(async (cart) => {
+        const size = await ProductResorce.getSize(cart.size_id);
         totalHarga += (cart.product.price * cart.qty);
         cartProductContainer.innerHTML += cartProductTemplate(cart);
         subTotalContainer.innerHTML += subTotalCartTemplate(cart);
         totalBayarContainer.innerHTML = totalCartTemplate(totalHarga);
+        const sizeName = document.querySelector('#size');
+        sizeName.innerHTML = size.data.data.name;
 
         const deleteButton = document.querySelectorAll('#deleteCart');
         deleteButton.forEach((del) => {
@@ -85,36 +88,35 @@ const Cart = {
             const id = e.target.parentElement.parentElement
               .parentElement.parentElement.parentElement.getAttribute('id');
             const qty = e.target.parentElement
-              .previousElementSibling.previousElementSibling
-              .children[1].value;
+              .previousElementSibling.children[1].value;
             UpdateCartButton.init({
               id,
               qty,
             });
           });
         });
-      });
 
-      const minusButton = document.querySelectorAll('#minusButton');
-      minusButton.forEach((el) => {
-        el.addEventListener('click', (e) => {
-          const currentValue = Number(e.target.nextElementSibling.value);
-          if (e.target.nextElementSibling.value <= 1) {
-            Swal.fire({
-              text: 'Pembelian minimal 1 item',
-              icon: 'warning',
-            });
-            return false;
-          }
-          return (e.target.nextElementSibling.value = currentValue - 1);
+        const minusButton = document.querySelectorAll('#minusButton');
+        minusButton.forEach((el) => {
+          el.addEventListener('click', (e) => {
+            const currentValue = Number(e.target.nextElementSibling.value);
+            if (e.target.nextElementSibling.value <= 1) {
+              Swal.fire({
+                text: 'Pembelian minimal 1 item',
+                icon: 'warning',
+              });
+              return false;
+            }
+            return (e.target.nextElementSibling.value = currentValue - 1);
+          });
         });
-      });
 
-      const plusButton = document.querySelectorAll('#plusButton');
-      plusButton.forEach((el) => {
-        el.addEventListener('click', (e) => {
-          const currentValue = Number(e.target.previousElementSibling.value);
-          return (e.target.previousElementSibling.value = currentValue + 1);
+        const plusButton = document.querySelectorAll('#plusButton');
+        plusButton.forEach((el) => {
+          el.addEventListener('click', (e) => {
+            const currentValue = Number(e.target.previousElementSibling.value);
+            return (e.target.previousElementSibling.value = currentValue + 1);
+          });
         });
       });
     }

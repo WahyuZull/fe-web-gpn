@@ -16,6 +16,7 @@ const API_ENDPOINT = {
   DETAILINVOICE: (trsId) => `${CONFIG.BASE_URL}/transaction/invoice/${trsId}`,
   LOGIN: `${CONFIG.BASE_URL}/user/login`,
   WELCOME: `${CONFIG.BASE_URL}/welcome`,
+  SIZE: (id) => `${CONFIG.BASE_URL}/size/${id}`,
 };
 
 export default API_ENDPOINT;
