@@ -145,19 +145,19 @@ class ProductResorce {
     }
   }
 
-  static async loginAdmin(data) {
+  static async login(data) {
     const response = await axios.post(API_ENDPOINT.LOGIN, data);
     return response;
   }
 
-  static async welcome(token) {
-    const response = await axios.post(API_ENDPOINT.WELCOME, token, {
-      headers: {
-        'x-access-token': token,
-      },
-    });
-    return response;
-  }
+  // static async welcome(token) {
+  //   const response = await axios.post(API_ENDPOINT.WELCOME, token, {
+  //     headers: {
+  //       'x-access-token': token,
+  //     },
+  //   });
+  //   return response;
+  // }
 
   static async getSize(id) {
     const response = await axios.get(API_ENDPOINT.SIZE(id));

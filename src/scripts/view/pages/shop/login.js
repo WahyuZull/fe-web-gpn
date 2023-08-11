@@ -1,5 +1,4 @@
-// import logoGpn from '../../../../public/icons/gpn-icon.png';
-// import LoginButton from '../../../../../FE Web GPN/src/scripts/utils/login-button';
+// import LoginButton from '../../../utils/login-button';
 
 const Login = {
   async render() {
@@ -61,19 +60,19 @@ const Login = {
   },
 
   async afterRender() {
-    // try {
-    //   const username = document.querySelector('#username');
-    //   const password = document.querySelector('#password');
-    //   const login = document.querySelector('#login');
-    //   login.addEventListener('click', () => {
-    //     LoginButton.init({
-    //       username,
-    //       password,
-    //     });
-    //   });
-    // } catch (err) {
-    //   console.log(err);
-    // }
+  //   try {
+  //     const username = document.querySelector('#username');
+  //     const password = document.querySelector('#password');
+  //     const login = document.querySelector('#login');
+  //     login.addEventListener('click', () => {
+  //       LoginButton.init({
+  //         username,
+  //         password,
+  //       });
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
   },
 };
 

@@ -168,15 +168,19 @@ class HeaderElement extends HTMLElement {
     `;
 
     const sessionId = localStorage.getItem('cartId');
-    const carts = await ProductResorce.getCart(sessionId);
-    const cartProduct = carts.data.data.length;
-
     const cartContainer = document.querySelector('#cartContainer');
     const cartNotif = document.querySelector('#cartNotif');
-    if (cartProduct > 0) {
-      cartContainer.innerHTML += cartNotifTemplate(cartProduct);
-      cartNotif.innerHTML += cartNotifMobileTemplate(cartProduct);
-    } else {
+    try {
+      const carts = await ProductResorce.getCart(sessionId);
+      const cartProduct = carts.data.data.length;
+      if (cartProduct > 0) {
+        cartContainer.innerHTML += cartNotifTemplate(cartProduct);
+        cartNotif.innerHTML += cartNotifMobileTemplate(cartProduct);
+      } else {
+        cartContainer.innerHTML = '';
+        cartNotif.innerHTML = '';
+      }
+    } catch (err) {
       cartContainer.innerHTML = '';
       cartNotif.innerHTML = '';
     }

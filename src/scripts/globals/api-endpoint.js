@@ -5,7 +5,7 @@ const API_ENDPOINT = {
   SHOP: `${CONFIG.BASE_URL}/frontend/productPage/`,
   SEARCH: (keyword) => `${CONFIG.BASE_URL}/frontend/productPage?keyword=${keyword}`,
   DETAIL: (url) => `${CONFIG.BASE_URL}/frontend/productDetail/${url}`,
-  ADDREVIEW: (id) => `${CONFIG.BASE_URL}/frontend/addProductReview/${id}`,
+  ADDREVIEW: (id) => `${CONFIG.BASE_URL}/review/add/${id}`,
   VIEWCART: (sessionId) => `${CONFIG.BASE_URL}/cart?sessionId=${sessionId}`,
   ADDTOCART: `${CONFIG.BASE_URL}/cart`,
   DELETECART: (id) => `${CONFIG.BASE_URL}/cart/${id}`,
@@ -14,7 +14,7 @@ const API_ENDPOINT = {
   TRANSACTION: `${CONFIG.BASE_URL}/transaction`,
   DETAILTRANSACTION: (trsNumber) => `${CONFIG.BASE_URL}/transaction/${trsNumber}`,
   DETAILINVOICE: (trsId) => `${CONFIG.BASE_URL}/transaction/invoice/${trsId}`,
-  LOGIN: `${CONFIG.BASE_URL}/user/login`,
+  LOGIN: `${CONFIG.BASE_URL}/auth/login`,
   WELCOME: `${CONFIG.BASE_URL}/welcome`,
   SIZE: (id) => `${CONFIG.BASE_URL}/size/${id}`,
 };

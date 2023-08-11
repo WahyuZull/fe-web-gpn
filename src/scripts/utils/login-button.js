@@ -20,12 +20,12 @@ const LoginButton = {
         icon: 'warning',
       });
     } else {
-      const response = await ProductResorce.loginAdmin(data);
-      const result = response.data.data;
-      const { token } = result;
-
-      const res = await ProductResorce.welcome(token);
-      console.log(res);
+      const response = await ProductResorce.login(data);
+      const token = response.data.accessToken;
+      if (sessionStorage) {
+        sessionStorage.setItem('accessToken', token);
+      }
+      console.log(response);
       if (response.data.code === 200) {
         window.location = '/#/shop/';
       }
