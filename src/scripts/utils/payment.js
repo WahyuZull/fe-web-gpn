@@ -8,12 +8,10 @@ const paymentButton = {
 
   async _payment() {
     const sessionId = this._sessionId;
-    const firstName = document.querySelector('#firstName').value;
-    const lastName = document.querySelector('#lastName').value;
+    const fullName = document.querySelector('#fullName').value;
     const email = document.querySelector('#email').value;
     const phone = document.querySelector('#phone').value;
     const address = document.querySelector('#address').value;
-    const city = document.querySelector('#city').value;
     const zipcode = document.querySelector('#zipcode').value;
     const paymentChoice = document.querySelectorAll('#payment-choice');
     let selectedPayment;
@@ -25,24 +23,22 @@ const paymentButton = {
     }
 
     const data = {
-      f_name: firstName,
-      l_name: lastName,
+      full_name: fullName,
       email,
       phone,
       address,
-      city,
       zipcode,
       payment_choice: selectedPayment,
     };
 
-    if (!firstName
-          || !lastName
-          || !email
-          || !phone
-          || !address
-          || !city
-          || !zipcode
-          || !paymentChoice) {
+    if (
+      !fullName
+      || !email
+      || !phone
+      || !address
+      || !city
+      || !zipcode
+      || !paymentChoice) {
       Swal.fire({
         text: 'Kolom tidak boleh kosong!',
         icon: 'warning',
@@ -54,7 +50,10 @@ const paymentButton = {
           window.location = `/#/transaction/${result.data.data.trs_number}`;
         }
       } catch (err) {
-        console.log(err);
+        Swal.fire({
+          text: 'Transaksi gagal!',
+          icon: 'error',
+        });
       }
     }
   },

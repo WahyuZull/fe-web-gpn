@@ -7,6 +7,8 @@ import Cart from '../view/pages/shop/cart';
 import Checkout from '../view/pages/shop/checkout';
 import Transaction from '../view/pages/shop/transaction';
 import Login from '../view/pages/shop/login';
+import Register from '../view/pages/shop/register';
+import Verification from '../view/pages/shop/verification';
 
 const routes = {
   '/': Home,
@@ -19,6 +21,8 @@ const routes = {
   '/checkout': Checkout,
   '/transaction/:url': Transaction,
   '/login': Login,
+  '/register': Register,
+  '/verifyemail/:url': Verification,
 };
 
 export default routes;

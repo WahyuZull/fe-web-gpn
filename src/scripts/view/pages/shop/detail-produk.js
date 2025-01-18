@@ -23,7 +23,7 @@ const Detail = {
     const product = response.data.data;
     const images = product.image;
     const reviews = product.review;
-    const stocks = product.stock;
+    const { stocks } = product;
 
     const imageGalery = images[0].filename;
     const thumbnailSatu = images[0].filename;
@@ -112,7 +112,6 @@ const Detail = {
     const addToCartButton = document.querySelector('#addToCart');
     addToCartButton.addEventListener('click', async (e) => {
       e.preventDefault();
-
       AddCartButton.init({
         id: product.id,
       });

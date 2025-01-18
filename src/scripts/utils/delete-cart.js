@@ -9,11 +9,17 @@ const DeleteCartButton = {
 
   async _deleteCart(id) {
     const result = await ProductResorce.deleteCart(id);
-
-    await Swal.fire({
-      text: 'Berhasil menghapus barang dari keranjang',
-      icon: 'success',
-    });
+    if (result.data.code === 200) {
+      await Swal.fire({
+        text: 'Berhasil menghapus barang dari keranjang',
+        icon: 'success',
+      });
+    } else {
+      await Swal.fire({
+        text: 'Gagal menghapus barang dari keranjang',
+        icon: 'warning',
+      });
+    }
     await window.location.reload();
   },
 };

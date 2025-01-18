@@ -79,12 +79,11 @@ const Transaction = {
     accordion.toggle('accordion-collapse-heading');
 
     const detailTransaction = await ProductResorce.getDetailTransaction(trsNumber);
-    const trsId = detailTransaction.data.data.id;
 
-    const result = await ProductResorce.getDetailInvoice(trsId);
-    const dataInvoice = result.data.data;
-    const dataCustomer = result.data.data.customerData;
-    const detailPesanan = result.data.data.details;
+    const dataInvoice = detailTransaction.data.data;
+    const { dataCustomer } = detailTransaction.data.data;
+    const detailPesanan = detailTransaction.data.data.details;
+    console.log(dataInvoice, detailPesanan);
 
     const detilInvoice = document.querySelector('#accordion-collapse-body');
     detilInvoice.innerHTML = detailInvoiceTemplate(dataInvoice);
@@ -112,20 +111,16 @@ const Transaction = {
       const containerTotalBarang = document.querySelector('#container-total-barang');
       containerTotalBarang.innerHTML = totalBarang;
 
-      const size = await ProductResorce.getSize(detail.size_id);
-      const sizeName = document.querySelector('#size');
-      sizeName.innerHTML = size.data.data.name;
-
       let totalTagihan = 0;
       totalTagihan = Number(totalBayar);
       const totalTagihanContainer = document.querySelector('#container-total-tagihan');
       totalTagihanContainer.innerHTML = formatRupiah(totalTagihan, true);
 
-      const detailInvoice = () => `Produk:%20*${detail.title}*%0DUkuran:%20*${size.data.data.name}*%0DHarga%20satuan:%20*${formatRupiah(detail.price, true)}*%0DQTY:%20*${detail.qty}*%0D%0DMetode%20Pembayaran:%20*${dataCustomer.payment_choice}*%0DSubtotal%20Bayar:%20*${formatRupiah(subTotalHarga, true)}*%0D%0D
+      const detailInvoice = () => `Produk:%20*${detail.title}*%0DUkuran:%20*${detail.size}*%0DHarga%20satuan:%20*${formatRupiah(detail.price, true)}*%0DQTY:%20*${detail.qty}*%0D%0DMetode%20Pembayaran:%20*${dataCustomer.payment_choice}*%0DSubtotal%20Bayar:%20*${formatRupiah(subTotalHarga, true)}*%0D%0D
       `;
       const confirmText = document.querySelector('#confirmText');
       confirmText.href = `
-        https://wa.me/+6285157721602?text=
+        https://wa.me/+6285747852654?text=
         *Halo%20Admin%21*%0DSaya%20mau%20konfirmasi%20pesanan%20dengan%20Nomor%20Transaksi%20*${trsNumber.toUpperCase()}.*%0D%0DRincian%20Pesanan:%0D%0D${detailInvoice()}%0D*Total%20Pembayaran:%20${formatRupiah(totalBayar, true)}*%0D*Total%20Tagihan:%20${formatRupiah(totalTagihan, true)}*%0_DHarga%20belum%20termasuk%20ongkos%20kirim._
       `;
     });

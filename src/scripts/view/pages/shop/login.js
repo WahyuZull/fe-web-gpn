@@ -1,4 +1,4 @@
-// import LoginButton from '../../../utils/login-button';
+import LoginButton from '../../../utils/login-button';
 
 const Login = {
   async render() {
@@ -29,28 +29,28 @@ const Login = {
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                   Login
                 </h1>
-                <div class="space-y-4 md:space-y-6">
-                  <div>
+                <div class="text-center">
+                  <p id="errorLogin" class="text-sm animate-pulse text-red-600"><p>
+                </div>
+                <form>
+                  <div class="space-y-4 md:space-y-6">
+                    <div>
                       <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
                       <input type="text" name="username" id="username" class="bg-gray-50 border border-primary text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="username" required="">
-                  </div>
-                  <div>
+                    </div>
+                    <div>
                       <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
-                      <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-primary text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" required="">
+                      <input type="password" name="password" id="password" placeholder="********" class="bg-gray-50 border border-primary text-gray-900 sm:text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" required="">
+                    </div>
+                    <p class="text-sm text-gray-500">
+                      Don't have an account?
+                      <a href="#/register" class="text-sm font-medium text-primary hover:underline">
+                        Register here
+                      </a>
+                    </p>
+                    <button id="login" type="submit" class="w-full text-white bg-green-500 hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center">Log in</button>
                   </div>
-                  <div class="flex flex-col items-start md:items-center justify-between gap-y-4 md:flex-row">
-                      <div class="flex items-start">
-                          <div class="flex items-center h-5">
-                            <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-primary rounded bg-gray-50 focus:ring-3 focus:ring-primary">
-                          </div>
-                          <div class="ml-3 text-sm">
-                            <label for="remember" class="text-gray-500">Remember me</label>
-                          </div>
-                      </div>
-                      <a href="" class="text-sm font-medium text-primary hover:underline">Forgot password?</a>
-                  </div>
-                  <button id="login" type="submit" class="w-full text-white bg-green-500 hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center">Log in</button>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -60,19 +60,16 @@ const Login = {
   },
 
   async afterRender() {
-  //   try {
-  //     const username = document.querySelector('#username');
-  //     const password = document.querySelector('#password');
-  //     const login = document.querySelector('#login');
-  //     login.addEventListener('click', () => {
-  //       LoginButton.init({
-  //         username,
-  //         password,
-  //       });
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
+    const username = document.querySelector('#username');
+    const password = document.querySelector('#password');
+    const login = document.querySelector('#login');
+    login.addEventListener('click', (e) => {
+      e.preventDefault();
+      LoginButton.init({
+        username,
+        password,
+      });
+    });
   },
 };
 

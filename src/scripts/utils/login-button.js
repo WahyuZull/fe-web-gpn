@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import jwtDecode from 'jwt-decode';
 import ProductResorce from '../data/product-source';
 
 const LoginButton = {
@@ -20,15 +22,21 @@ const LoginButton = {
         icon: 'warning',
       });
     } else {
-      const response = await ProductResorce.login(data);
-      const token = response.data.accessToken;
-      if (sessionStorage) {
-        sessionStorage.setItem('accessToken', token);
-      }
-      console.log(response);
-      if (response.data.code === 200) {
-        window.location = '/#/shop/';
-      }
+      const errorLogin = document.querySelector('#errorLogin');
+      await ProductResorce.login(data, (status, res) => {
+        if (res.code === 200) {
+          errorLogin.innerHTML = '';
+          const token = res.accessToken;
+          const decoded = jwtDecode(token);
+          const user = decoded.username;
+          localStorage.setItem('token', token);
+          localStorage.setItem('username', user);
+          window.location.href = '#/shop/';
+          window.location.reload();
+        } else {
+          errorLogin.innerHTML = (res.response.data.message);
+        }
+      });
     }
   },
 };

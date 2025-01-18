@@ -1,5 +1,5 @@
 import ProductResorce from '../data/product-source';
-import { cartNotifTemplate, cartNotifMobileTemplate } from '../view/templates/template-creators';
+import { cartNotifTemplate } from '../view/templates/template-creators';
 
 class HeaderElement extends HTMLElement {
   connectedCallback() {
@@ -19,32 +19,7 @@ class HeaderElement extends HTMLElement {
               src="/icons/icon-gpn.png"
               alt="Logo GPN"
             />
-            <p
-              class="lg:hidden ml-3 self-center text-lg whitespace-nowrap font-body font-bold text-gray-900"
-            >
-              <span
-                class="font-script text-3xl text-transparent bg-clip-text bg-gradient-to-tr from-secondary to-yellow-400"
-                >Galeri</span>
-              <span
-                class="text-transparent bg-clip-text bg-gradient-to-br from-primary via-green-600 to-lightPrimary"
-                >Pelajar</span>
-              Nusantara
-            </p>
           </a>
-        </div>
-
-        <!-- Humberger Button -->
-        <div class="flex items-center lg:hidden">
-          <button
-            type="button"
-            id="openMenu"
-            class="block"
-            aria-label="menu"
-          >
-            <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
-            <span class="hamburger-line transition duration-300 ease-in-out"></span>
-            <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
-          </button>
         </div>
 
         <!-- Nav Menu -->
@@ -73,6 +48,70 @@ class HeaderElement extends HTMLElement {
             >Contact</a
           >
         </nav>
+
+        <!-- Login -->
+        <div class="flex flex-1 justify-end mr-4 lg:mr-0">
+          <a href="#/cart" class="px-2.5 py-2.5 flex items-center text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+            </svg>
+            <div id="cartContainer" class="relative group"></div>
+          </a>
+          <a
+            id="toLogin"
+            href="#/login"
+            class="py-2.5 px-2.5 flex text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary"
+            >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+            </svg>
+            Log in
+          </a>
+          <div id="toLogout" class="relative hidden">
+            <button type="button" id="buttonUserMenu">
+              <img
+                id="avatar"
+                src=""
+                class="rounded-full h-10"
+                alt="user avatar" />
+            </button>
+            <div id="userMenu" class="hidden duration-100 ease-in-out absolute right-0 z-50 w-40 rounded-md mt-6 drop-shadow-sm bg-white bg-opacity-80">
+              <div class="p-1">
+                <a href="#/profile"
+                  class="py-2.5 px-2.5 flex text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  Profile
+                </a>
+                <button
+                  id="logout"
+                  type="button"
+                  class="py-2.5 px-2.5 flex text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary"
+                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                  </svg>
+                  Log out
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Humberger Button -->
+        <div class="flex items-center lg:hidden">
+          <button
+            type="button"
+            id="openMenu"
+            class="block"
+            aria-label="menu"
+          >
+            <span class="hamburger-line transition duration-300 ease-in-out origin-top-left"></span>
+            <span class="hamburger-line transition duration-300 ease-in-out"></span>
+            <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
+          </button>
+        </div>
 
         <!-- mobile Menu -->
         <div
@@ -126,42 +165,16 @@ class HeaderElement extends HTMLElement {
             </li>
             <li class="group">
               <a
-                href="#/cart"
-                class="py-2.5 px-4 flex text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                </svg>
-                <div id="cartNotif" class="relative group"></div>
-                Keranjang
-              </a>
-            </li>
-            <li class="group">
-              <a
-                href="#/login"
-                class="py-2 px-4 flex text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary"
-              >
+                href="#/register"
+                class="py-4 px-4 flex text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary"
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
                   </svg>
-                Log in
-              </a>
+                Register</a
+              >
             </li>
           </ul>
-        </div>
-
-        <!-- Login -->
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#/cart" class="px-2.5 py-2.5 text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-            </svg>
-            <div id="cartContainer" class="relative group"></div>
-          </a>
-          <a
-            href="#/login"
-            class="px-2.5 py-2.5 text-sm font-semibold leading-6 text-gray-900 cursor-pointer hover:text-secondary"
-            >Log in <span aria-hidden="true">&rarr;</span></a
-          >
         </div>
       </div>
     </div>
@@ -169,21 +182,54 @@ class HeaderElement extends HTMLElement {
 
     const sessionId = localStorage.getItem('cartId');
     const cartContainer = document.querySelector('#cartContainer');
-    const cartNotif = document.querySelector('#cartNotif');
     try {
       const carts = await ProductResorce.getCart(sessionId);
       const cartProduct = carts.data.data.length;
       if (cartProduct > 0) {
         cartContainer.innerHTML += cartNotifTemplate(cartProduct);
-        cartNotif.innerHTML += cartNotifMobileTemplate(cartProduct);
       } else {
         cartContainer.innerHTML = '';
-        cartNotif.innerHTML = '';
       }
     } catch (err) {
       cartContainer.innerHTML = '';
-      cartNotif.innerHTML = '';
     }
+
+    const user = localStorage.getItem('username');
+    const ava = document.querySelector('#avatar');
+    const toLogin = document.querySelector('#toLogin');
+    const toLogout = document.querySelector('#toLogout');
+    if (user) {
+      ava.src = `https://ui-avatars.com/api/?name=${user}`;
+      toLogin.classList.add('hidden');
+      toLogout.classList.remove('hidden');
+    } else {
+      toLogin.classList.remove('hidden');
+      toLogout.classList.add('hidden');
+    }
+
+    const buttonUserMenu = document.querySelector('#buttonUserMenu');
+    const userMenu = document.querySelector('#userMenu');
+    buttonUserMenu.addEventListener('click', (e) => {
+      e.preventDefault();
+      userMenu.classList.toggle('hidden');
+    });
+
+    const logout = document.querySelector('#logout');
+    logout.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await ProductResorce.logout((status, res) => {
+        if (status) {
+          localStorage.clear('username');
+          localStorage.clear('token');
+          window.location.href = '/';
+        } else {
+          Swal.fire({
+            title: (res.response.data.message),
+            icon: 'error',
+          });
+        }
+      });
+    });
   }
 }
 

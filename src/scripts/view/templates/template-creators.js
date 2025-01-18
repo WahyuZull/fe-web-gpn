@@ -169,9 +169,9 @@ const detailProdukTemplate = (product) => `
 
 const sizeProdukTemplate = (stock) => `
   <div class="flex items-center justify-center">
-    <input type="radio" id="size-choice-${stock.id}" name="size-choice" value="${stock.stock}" placeholder="${stock.size.id}" class="hidden peer">
+    <input type="radio" id="size-choice-${stock.id}" name="size-choice" value="${stock.stock}" placeholder="${stock.size}" class="hidden peer">
     <label for="size-choice-${stock.id}" class="flex items-center justify-center h-10 w-10 p-2 text-gray-500 bg-white border border-gray-200 rounded-md drop-shadow-sm cursor-pointer peer-checked:border-gray-600 peer-checked:text-gray-900 peer-checked:bg-gray-100 peer-checked:font-medium hover:text-gray-600 hover:bg-gray-100">
-      <p>${stock.size.name}</p>
+      <p>${stock.size}</p>
     </label>
   </div>
 `;
@@ -207,26 +207,6 @@ const reviewProdukTemplate = (review) => `
   </div>
 `;
 
-const reviewElementTemplate = (review) => `
-  <div id="carousel-item-${review.id}" class="hidden duration-700 ease-in-out">
-    <figure class="max-w-screen-md mx-auto">
-      <svg class="h-12 mx-auto mb-3 text-gray-400" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"/>
-      </svg> 
-      <blockquote>
-        <p class="text-2xl font-medium text-gray-900">"${review.review}"</p>
-      </blockquote>
-      <figcaption class="flex items-center justify-center mt-6 space-x-3">
-        <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png" alt="profile picture">
-        <div class="flex items-center divide-x-2 divide-gray-500">
-          <div class="pr-3 font-medium text-gray-900 dark:text-white">${review.name}</div>
-          <div class="pl-3 text-sm font-light text-gray-500">${review.date}</div>
-        </div>
-      </figcaption>
-    </figure>
-  </div>
-`;
-
 const cartNotifTemplate = (cartProduct) => `
   <p class="absolute -right-3 -top-7 h-5 w-5 text-xs text-center text-white border rounded-full bg-secondary">${cartProduct}</p>
 `;
@@ -237,18 +217,15 @@ const cartNotifMobileTemplate = (cartProduct) => `
 
 const cartProductTemplate = (cart) => `
   <div id="${cart.id}" class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-    <img id="image" src="${
-  cart.product.image[0].filename
+    <img id="image" src="${cart.product.image[0].filename
     ? CONFIG.BASE_IMAGE_URL + cart.product.image[0].filename
     : 'https://picsum.photos/id/666/800/450?grayscale'
-}" alt="${
-  cart.product.title
+}" alt="${cart.product.title
 }" loading="lazy" class="w-full h-80 sm:h-40 sm:w-44 object-cover object-enter rounded-lg"/>  
       <div class="mt-4 w-full flex justify-between md:mt-0">
         <div class="ml-4 gap-2">
           <h2 class="text-xl font-bold text-gray-900">${cart.product.title}</h2>
-          <p class="text-sm italic text-gray-700">${cart.product.category.name}</p>
-          <p class="text-lg text-gray-700 font-medium">Size: <span id="size"></span></p>
+          <p class="text-sm italic text-gray-700">${cart.size}</p>
         </div>
         <div class="flex justify-between">
           <div class="grid grid-rows-3 gap-2">
@@ -286,8 +263,8 @@ const totalCartTemplate = (subTotal) => `
 
 const emptyCartTemplate = () => `
   <div class="text-center py-24 lg:py-2">
-    <div class="flex justify-center items-center overflow-hidden">
-      <img src="/images/cart_shop.png" class="object-center h-40 w-40 lg:h-56 lg:w-56">
+    <div class="h-40 w-full flex justify-center items-center overflow-hidden">
+      <img src="/images/cart_shop.png" class="object-center h-full">
     </div>
     <p class="pt-6 text-md font-semibold mb-4">Anda belum menambahkan barang ke keranjang</p>
     <div class="my-4">
@@ -341,14 +318,10 @@ const formCheckoutTemplate = () => `
     <div class="leading-loose">
       <div class="max-w-xl m-4 p-10 bg-white border rounded-md shadow-xl">
         <h1 class="mb-10 text-center text-2xl font-bold">Checkout</h1>
-        <p class="text-gray-800 font-medium">Customer information</p>
-        <div class="inline-block mt-2 w-1/2 pr-1">
-          <label class="block text-sm text-gray-00" for="cus_name">Nama Depan</label>
-          <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded-md" id="firstName" name="cus_name" type="text" required="" placeholder="Nama Depan" aria-label="Name">
-        </div>
-        <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
-          <label class="block text-sm text-gray-00" for="cus_name">Nama Belakang</label>
-          <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded-md" id="lastName" name="cus_name" type="text" required="" placeholder="Nama Belakang" aria-label="Name">
+        <p class="text-gray-800 font-medium">Informasi Pelanggan</p>
+        <div class="mt-2">
+          <label class="block text-sm text-gray-00" for="cus_name">Nama Lengkap</label>
+          <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded-md" id="fullName" name="cus_name" type="text" required="" placeholder="Nama Lengkap" aria-label="Name">
         </div>
         <div class="mt-2">
           <label class=" block text-sm text-gray-600" for="cus_email">E-mail</label>
@@ -361,10 +334,6 @@ const formCheckoutTemplate = () => `
         <div class="mt-2">
           <label class="text-sm block text-gray-600" for="cus_address">Alamat</label>
           <textarea class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded-md" id="address" name="cus_address" type="text" required="" placeholder="Alamat" aria-label="Address"></textarea>
-        </div>
-        <div class="inline-block mt-2 w-1/2 pr-1">
-          <label class="block text-sm text-gray-600" for="cus_city">Kota</label>
-          <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded-md" id="city" name="cus_city" type="text" required="" placeholder="City" aria-label="City">
         </div>
         <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
           <label class="block text-sm text-gray-600" for="cus_zip">Kode Pos</label>
@@ -404,7 +373,7 @@ const transactionTemplate = (result) => `
               <th class="font-bold">QTY</th>
               <th class="font-bold">Harga Satuan</th>
               <th class="font-bold">Sub Total</th>
-            <tr>
+            </tr>
           </thead>
           <tbody id="detailInvoice" class=""></tbody>
         </table>
@@ -422,63 +391,17 @@ const transactionTemplate = (result) => `
 `;
 
 const detailInvoiceTemplate = (dataInvoice) => `
-  <div id="print-area" class="p-5 border border-b border-gray-200">
-    <div class="w-full grid justify-items-end">
-      <p class="font-bold">INVOICE</p>
-      <p class="text-xs">${dataInvoice.trs_number}</p>
-      <p class="text-xs">${dataInvoice.transaction_date}</p>
-    </div>
-    <div class="pt-2 flex gap-6">
-      <div clas="w-1/2">
-        <p class="font-bold">DITERBITKAN ATAS NAMA</p>
-        <p>Galeri Pelajar Nusantara</p>
+    <tr class="border-b">
+    <td class="text-left">
+      <div class="flex flex-col">
+        <p class="font-semibold">${detail.title} (${detail.size})</p>
+        <p class="italic">${detail.category.name}</p>
       </div>
-      <div class="w-1/2">
-        <p class="font-bold">UNTUK</p>
-        <table id="customer-data" class="table-fixed">
-        </table>
-      </div>
-    </div>
-    <div class="flex justify-center pt-2">
-      <table class="w-full table-auto">
-        <thead class="border-y-2 border-gray-900 p-1">
-          <tr>
-            <th class="text-left">NAMA PRODUK</th>
-            <th class="text-right">JUMLAH</th>
-            <th class="text-right">HARGA SATUAN</th>
-            <th class="text-right">TOTAL HARGA</th>
-          </tr>
-        </thead>
-        <tbody id="data-produk-invoice" class="">
-        </tbody>
-      </table>
-    </div>
-    <div class="py-2 border-b">
-      <table class="table-auto w-full">
-        <tr>
-          <td class="font-bold">
-            TOTAL HARGA (<span id="container-total-barang"></span> BARANG)
-          </td>
-          <td id="container-total-harga" class="font-bold text-right"></td>
-        </tr>
-        <tr>
-          <td class="font-bold">TOTAL TAGIHAN</td>
-          <td id="container-total-tagihan" class="font-bold text-right"></td>
-        </tr>
-        <tr>
-          <td class="italic text-neutral-400">Harga belum termasuk ongkos kirim</td>
-        </tr>
-      </table>
-    </div>
-    <div class="pt-2">
-      <p class="font-bold">METODE PEMBAYARAN</p>
-      <p id="payment-choice"></p>
-    </div>
-    <p class="pt-4 italic text-neutral-400">
-      Invoice ini sah dan diproses oleh komputer. <br>
-      Silahkan hubungi Kami melalui kontak yang tertera pada laman <a href="#/contact" target="_blank" class="text-green-500 font-bold">Contact</a> apabila Anda membutuhkan bantuan.
-    </p>
-  </div>
+    </td>
+    <td class="text-right">${detail.qty}</td>
+    <td class="text-right">${formatRupiah(detail.price, false)}</td>
+    <td class="text-right">${formatRupiah(Number(detail.price) * (detail.qty), false)}</td>
+  </tr>
 `;
 
 const customerDataInvoiceTemplate = (dataCustomer) => `
@@ -498,7 +421,7 @@ const dataProdukInvoiceTemplate = (detail) => `
   <tr class="border-b">
     <td class="text-left">
       <div class="flex flex-col">
-        <p class="font-semibold">${detail.title} (<span id="size"></span>)</p>
+        <p class="font-semibold">${detail.title} (${detail.size})</p>
         <p class="italic">${detail.category.name}</p>
       </div>
     </td>
@@ -542,7 +465,6 @@ export {
   detailProdukTemplate,
   sizeProdukTemplate,
   reviewProdukTemplate,
-  reviewElementTemplate,
   cartNotifTemplate,
   cartNotifMobileTemplate,
   cartProductTemplate,

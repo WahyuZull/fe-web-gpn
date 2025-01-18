@@ -21,7 +21,7 @@ const AddCartButton = {
     const data = {
       product_id: this._id,
       qty,
-      size_id: selectedSize,
+      size: selectedSize,
       sessionId: localStorage.getItem('cartId'),
     };
     if (!selectedSize) {
@@ -47,7 +47,6 @@ const AddCartButton = {
           icon: 'error',
         });
       }
-
       window.location.reload();
     }
   },

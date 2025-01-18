@@ -62,13 +62,10 @@ const Cart = {
 
       let totalHarga = 0;
       carts.forEach(async (cart) => {
-        const size = await ProductResorce.getSize(cart.size_id);
         totalHarga += (cart.product.price * cart.qty);
         cartProductContainer.innerHTML += cartProductTemplate(cart);
         subTotalContainer.innerHTML += subTotalCartTemplate(cart);
         totalBayarContainer.innerHTML = totalCartTemplate(totalHarga);
-        const sizeName = document.querySelector('#size');
-        sizeName.innerHTML = size.data.data.name;
 
         const deleteButton = document.querySelectorAll('#deleteCart');
         deleteButton.forEach((del) => {
