@@ -18,6 +18,10 @@ npm run start-dev
 
 Jalankan perintah berikut ini untuk tahap production.
 
+# test website
+
+https://web-gpn-percobaan.netlify.app/
+
 # credits
 
 Credits by Galeri Pelajar Nusantara
